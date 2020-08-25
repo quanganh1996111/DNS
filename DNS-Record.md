@@ -101,6 +101,59 @@ Trong đó:
 
 - **Target**: chỉ định FQDN cho host hỗ trợ dịch vụ.
 
+## 7. Record CNAME (Canonical Name)
+
+Cho phép tên miền có nhiều bí danh khác nhau, khi truy cập các bí danh sẽ cũng về một địa chỉ tên miền. Để sử dụng bản ghi CNAME cần khai báo bản ghi A trước. Ví dụ bản ghi CNAME phổ biến nhất:
+
+```
+www   CNAME   example.com
+
+mail CNAME example.com
+
+example.com   A   103.101.161.201
+```
+
+Khi một yêu cầu đến địa chỉ www.example.com thì DNS sẽ tìm đến example thông qua bản ghi CNAME, một truy vấn DNS mới sẽ tiếp tục tìm đến địa chỉ IP: 103.101.161.201 thông qua bản ghi A.
+
+## 8. Record MX
+
+Bản ghi MX có tác dụng xác định, chuyển thư đến domain hoặc subdomain đích. Bản ghi MX có dạng:
+
+```
+example.com    MX    10    mail.example.com.
+mail.example.com    A    103.101.161.201
+```
+
+Độ ưu tiền càng cao thì số càng thấp.
+
+```
+example.com MX 10 mail_1.example.com
+example.com MX 20 mail_2.example.com
+example.com MX 30 mail_3.example.com
+```
+
+Bản ghi MX không nhất thiết phải trỏ đến hosting – VPS- Server của người dùng. Nếu người dùng đang sử dụng dịch vụ mail của bên thứ ba như Gmail thì cần sử dụng bản nghi MX do họ cung cấp.
+
+## 9. Record TXT
+
+Bản ghi TXT(text) được sử dụng để cung cấp khả năng liên kết văn bản tùy ý với máy chủ. Chủ yếu dùng trong mục đích xác thực máy chủ với tên miền.
+
+## 10. Record DKIM
+
+Là bản ghi dùng để xác thực người gửi bằng cách mã hóa một phần email gửi bằng một chuỗi ký tự, xem như là chữ ký.
+
+Khi email được gửi đi máy chủ mail sẽ kiểm so sánh với thông tin bản ghi đã được cấu hình trong DNS để xác nhận. Bản ghi DKIM có dạng:
+
+`mail._domainkey.cloud365.vn     TXT  k=rsa;p=MIIBIjANBgkqhkiG9w0BA`
+
+## 11. Record SPF
+
+Record SPF được tạo ra nhầm đảm bảo các máy chủ mail sẽ chấp nhận mail từ tên miền của khách hàng chỉ được gửi đi từ server của khách hàng. Sẽ giúp chống spam và giả mạo email. Bản ghi SPF thể hiện dưới dạng:
+
+`cloud365.vn   SPF     "v=spf1 ip4:103.101.162.0/24 -all" 3600`
+
+Tùy vào hệ thống DNS mà có thể hiển thị bản ghi SPF hoặc TXT Với bản ghi SPF, máy chủ tiếp nhận mail sẽ kiểm tra IP của máy chủ gửi và IP của máy chủ đã đăng kí bản ghi SPF example.com. Nếu Khách hàng có nhiều máy chủ mail nên liệt kê tất cả trong bản ghi SPF giúp đảm bảo thư đến được chính xác và đầy đủ.
+
 ## Tài liệu tham khảo
 
 https://blog.cloud365.vn/linux/dns-record/
