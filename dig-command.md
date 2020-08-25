@@ -210,3 +210,48 @@ google.com.             299     IN      A       172.217.174.206
 ;; global options: +cmd
 206.174.217.172.in-addr.arpa. 20847 IN  PTR     hkg07s34-in-f14.1e100.net.
 ```
+
+### 4.7. Truy vấn số lượng lớn các tên miền
+
+```
+[root@anhtq-test ~]# cat tenmien.txt
+google.com
+gmail.com
+linux.org
+[root@anhtq-test ~]# dig -f tenmien.txt +noall +answer
+google.com.		123	IN	A	216.58.200.14
+gmail.com.		131	IN	A	172.217.31.229
+linux.org.		300	IN	A	104.27.166.219
+linux.org.		300	IN	A	104.27.167.219
+```
+
+### 4.8. Truy vấn DNS bằng TCP
+
+Theo mặc định thì lệnh `dig` truy vấn DNS qua udp, để có thể dùng lệnh `dig` truy vấn DNS qua tcp chúng ta thực hiện như sau:
+
+`dig +tcp [domain]`
+
+### 4.9. Điều chỉnh mặc định với tệp ~/.digrc
+
+Chúng ta có thể tạo tệp `.digrc` trong thư mục chính để bao gồm tùy chọn tùy mà chúng ta muốn lệnh `dig` thực hiện. Chúng ta có thể chỉ định các tùy chọn khác nhau trong tệp `~/.digrc` sẽ luôn tự động chạy khi sử dụng lệnh `dig`.
+
+Trong ví dụ dưới đây, chúng ta thêm tùy chọn +short vào ~/.digrc sau đó thực hiện lệnh dig chúng ta thực hiện như sau:
+
+```
+[root@anhtq-test ~]# cat .digrc
++short
+[root@anhtq-test ~]# dig amazon.com
+176.32.98.166
+176.32.103.205
+205.251.242.103
+```
+
+## Kết luận
+
+Qua bài trên, giúp cho chúng ta cách sử dụng lệnh `dig` theo nhiều cách khác nhau để thực hiện các truy vấn DNS trên hệ điều hành Linux, làm cho nó trở thành một công cụ hữu ích để khắc phục sự cố hoặc thực hiện tra cứu DNS.
+
+## Tài liệu tham khảo
+
+https://blogd.net/linux/cac-vi-du-ve-lenh-dig/
+
+https://news.cloud365.vn/tim-hieu-ve-lenh-dig/
