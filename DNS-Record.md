@@ -59,7 +59,47 @@ Có nhiệm vụ tương tự như bản ghi A, nhưng thay vì địa chỉ IPv
 
 ## 5. Record PTR
 
+Hệ thống tên miền thông thường cho phép chuyển đổi từ tên miền sang địa chỉ IP. Trong thực tế, một số dịch vụ Internet đòi hỏi hệ thống máy chủ DNS phải có chức năng chuyển đổi từ địa chỉ IP sang tên miền. Tên miền ngược thường được sử dụng trong một số trường hợp xác thực email gửi đi.
 
+Ví dụ:
+
+- Đối với IPv4:
+
+`90.163.101.103.in-addr.arpa       IN PTR     masterdns.tuanda.com.`
+
+- Đối với IPv6:
+
+`0.0.0.0.0.0.0.0.0.0.0.0.d.c.b.a.4.3.2.1.3.2.1.0.8.c.d.0.1.0.0.2.ip6.arpa  IN PTR masterdns.tuanda.com.`
+
+## 6. Record SRV
+
+Bản ghi SRV được sử dụng để xác định vị trí các dịch vụ đặc biệt trong 1 domain, ví dụ tên máy chủ và số cổng của các máy chủ cho các dịch vụ được chỉ định.
+
+Ví dụ: 
+
+`_ldap._tcp.example.com. 3600  IN  SRV  10  0  389  ldap01.example.com.`
+
+Một Client trong trường hợp này có thể nhờ DNS nhận ra rằng, trong tên miền example.com có LDAP Server ldap01, mà có thể liên lạc qua cổng TCP Port 389 .
+
+Trong đó:
+
+- **Service**: có giá trị _ldap.
+
+- **Protocol**: có giá trị  _tcp.
+
+- **example.com.**: Tên miền (domain name).
+
+- **TTL**: Thời gian RR được giữ trong cache, giá trị trong ví dụ là 3600.
+
+- **Class**: standard DNS class, luôn là IN.
+
+- **Priority**: ưu tiên của host, số càng nhỏ càng ưu tiên.
+
+- **Weight**: khi cùng bậc ưu tiên, thì trọng lượng 3 so với trọng lượng 2 sẽ được lựa chọn 60% (hỗ trợ load balancing).
+
+- **Port**: của dịch vụ (tcp hay udp).
+
+- **Target**: chỉ định FQDN cho host hỗ trợ dịch vụ.
 
 ## Tài liệu tham khảo
 
