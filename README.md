@@ -47,3 +47,7 @@ Hệ thống DNS nắm vai trò như một cuốn “danh bạ” để đối c
     - Domain đại diện cho toàn bộ tên miền / máy chủ thuộc cùng một tổ chức. Ví dụ: tất cả các tên miền kết thúc bằng “.com” là một phần của tên miền “com”.
 
     - Zone là một tên miền hoặc ít hơn tùy thuộc vào việc ủy quyền (delegated) tên miền con với những máy chủ DNS khác. Ví dụ: Máy chủ DNS có thể quản lý tất cả các bản ghi trong miền “cloud365.vn”, nhưng bằng cách xác định các bản ghi NS cho “abc.cloud365.vn”, phần này của miền được ủy quyền cho các máy chủ DNS khác - và có thể một công ty / thực thể khác nhau. Một zone chứa một bản ghi SOA mô tả các thuộc tính chung của vùng (zones) đó.
+
+## Tài liệu tham khảo
+
+https://blog.cloud365.vn/linux/dns-introduction/
