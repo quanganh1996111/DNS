@@ -2,6 +2,14 @@
 
 ## Mục lục
 
+[1. Câu lệnh nslookup](https://github.com/quanganh1996111/DNS/blob/master/nslookup.md#1-c%C3%A2u-l%E1%BB%87nh-nslookup)
+
+[2. Chế độ interactive](https://github.com/quanganh1996111/DNS/blob/master/nslookup.md#2-ch%E1%BA%BF-%C4%91%E1%BB%99-interactive)
+
+[3. Chế độ Non-interactive](https://github.com/quanganh1996111/DNS/blob/master/nslookup.md#3-ch%E1%BA%BF-%C4%91%E1%BB%99-non-interactive)
+
+[Tài liệu tham khảo](https://github.com/quanganh1996111/DNS/blob/master/nslookup.md#t%C3%A0i-li%E1%BB%87u-tham-kh%E1%BA%A3o)
+
 ## 1. Câu lệnh nslookup
 
 `nslookup` (name server lookup) là một công cụ được sử dụng để thực hiện tra cứu DNS trong Linux. Nó được sử dụng để hiển thị chi tiết DNS, chẳng hạn như địa chỉ IP của một máy tính cụ thể, bản ghi MX cho một miền hoặc máy chủ NS của một miền. Về cơ bản câu lệnh `nslookup` khá giống với câu lệnh `dig` (Có thể xem [tại đây](https://github.com/quanganh1996111/DNS/blob/master/dig-command.md)).
