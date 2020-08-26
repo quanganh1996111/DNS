@@ -1,4 +1,4 @@
-# Tìm hiều nslookup trong Linux
+# Tìm hiểu về câu lệnh nslookup trong Linux
 
 ## Mục lục
 
