@@ -198,6 +198,8 @@ google.com      mail exchanger = 20 alt1.aspmx.l.google.com.
 Authoritative answers can be found from:
 ```
 
+Trên đây là một số ví dụ về việc sử dụng câu lệnh `nslookup`. Ta có thể xem thêm một số câu lệnh khác của `nslookup` [tại đây](https://www.thegeekstuff.com/2012/07/nslookup-examples/)
+
 ## Tài liệu tham khảo
 
 https://geek-university.com/linux/nslookup-command/
