@@ -50,4 +50,17 @@ Kiểm tra các bản ghi DNS và Nameserver của CloudFlare
 
 <img src="https://imgur.com/dp4L77p.png">
 
+### Chú ý
+
+Đối với các Webserver đang sử dụng tên miền ta vừa trỏ về CloudFlare, ta cũng phải cấu hình trỏ về Nameserver của CloudFlare
+
+Ví dụ: Cấu hình trỏ tên miền về Nameserver CloudFlare trên Linux
+
+`vi /etc/resolv.conf`
+
+```
+nameserver autumn.ns.cloudflare.com
+nameserver morgan.ns.cloudflare.com
+```
+
 ### Chúc các bạn thành công
